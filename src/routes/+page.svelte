@@ -1,4 +1,6 @@
 <h1>Welcome to home</h1>
 
-<a href="/about">go to about</a>
-<a href="/profile">go to My Profile</a>
+<a href="/about">About</a>
+<a href="/products">Products</a>
+<a href="/blog">Blog</a>
+<a href="/profile">Profile</a>
