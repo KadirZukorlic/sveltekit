@@ -13,7 +13,10 @@ export const GET = () => {
 export const POST = async ({ request }) => {
   const { text } = await request.json()
   comments.push({ id: comments.length + 1, text })
-  return new Response(JSON.stringify(comments), {
-    statusCode: 201,
+  // return new Response(JSON.stringify(comments), {
+  //   statusCode: 201,
+  // })
+  return json(comments, {
+    status: 201,
   })
 }
