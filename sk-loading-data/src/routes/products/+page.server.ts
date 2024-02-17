@@ -6,7 +6,6 @@ export const load: PageLoad = async (serverLoadEvent: any) => {
   const title: string = 'List of available products'
   const response = await fetch('http://localhost:4000/products')
   const products = await response.json()
-  console.log('products:', products)
   return {
     title,
     products,
