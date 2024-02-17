@@ -15,8 +15,21 @@ export const PATCH = async ({ params, request }) => {
   const updatedComment = comments.find(
     (comment) => comment.id === parseInt(commentID),
   )
-
   updatedComment.text = text
 
   return json(updatedComment)
+}
+
+export const DELETE = async ({ params }) => {
+  const { commentID } = params
+  const deletedComment = comments.find(
+    (comment) => comment.id === parseInt(commentID),
+  )
+  const index = comments.findIndex(
+    (comment) => comment.id === parseInt(commentID),
+  )
+
+  comments.splice(index, 1)
+
+  return json(deletedComment)
 }
