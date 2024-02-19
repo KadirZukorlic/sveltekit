@@ -1,4 +1,5 @@
 import type { PageLoad } from '../../../../.svelte-kit/types/src/routes/products/$types'
+import { error, redirect } from '@sveltejs/kit'
 
 export const load: PageLoad = async ({ params, fetch, url, route }) => {
   console.log('URL:', url)
@@ -6,6 +7,14 @@ export const load: PageLoad = async ({ params, fetch, url, route }) => {
   console.log('Params:', params)
   // @ts-ignore
   const { productId } = params
+  if (productId > 3) {
+    // throw error(404, {
+    //   message: 'Oh NO! Product not found!',
+    //   hint: 'Try a different product',
+    // })
+    throw redirect(307, '/products')
+  }
+
   const title = 'Product details'
   const response = await fetch('http://localhost:4000/products')
   const products = await response.json()
