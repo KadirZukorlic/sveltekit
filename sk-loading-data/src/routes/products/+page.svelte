@@ -5,7 +5,7 @@
     $: console.log(data.products)
 </script>
 
-<h1>{data.title}</h1>
+<h1>{data.title} for {data.username}</h1>
 <p>list of products</p>
 {#each products as product}
     <div>
