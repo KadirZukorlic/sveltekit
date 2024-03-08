@@ -1,5 +1,7 @@
 <script>
   export let data;
+
+  $: console.log(data, ' data');
 </script>
 
 <span>Most active stock - {data.mostActiveStock.symbol}</span>

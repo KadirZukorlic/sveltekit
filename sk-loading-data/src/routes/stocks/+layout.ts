@@ -9,12 +9,12 @@ export const load = async (loadEvent) => {
   const topLosingStockResponse = await fetch(
     'http://localhost:4000/top-losing-stock',
   )
-  // const mostActiveStock = await mostActiveStockResponse.json();
-  // const topGainingStock = await topGainingResponse.json();
-  // const topLosingStock = await topLosingResponse.json();
+  const mostActiveStock = await mostActiveStockResponse.json()
+  const topGainingStock = await topGainingStockResponse.json()
+  const topLosingStock = await topLosingStockResponse.json()
   return {
-    mostActiveStock: mostActiveStockResponse.json(),
-    topGainingStock: topGainingStockResponse.json(),
-    topLosingStock: topLosingStockResponse.json(),
+    mostActiveStock: mostActiveStock,
+    topGainingStock: topGainingStock,
+    topLosingStock: topLosingStock,
   }
 }
