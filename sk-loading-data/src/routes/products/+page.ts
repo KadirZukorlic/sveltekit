@@ -5,6 +5,7 @@ export const load: PageLoad = async ({ fetch, parent }) => {
   const parentData = await parent()
   const { username } = parentData
   console.log('parentData hahahaha', parentData)
+  const notification = 'End of season sale!'
   const title: string = 'List of available products'
   const response = await fetch('http://localhost:4000/products')
   const products = await response.json()
@@ -12,5 +13,6 @@ export const load: PageLoad = async ({ fetch, parent }) => {
     title,
     products,
     username,
+    notification,
   }
 }

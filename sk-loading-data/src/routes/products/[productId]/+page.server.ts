@@ -15,6 +15,7 @@ export const load: PageLoad = async ({ params, fetch, url, route }) => {
     throw redirect(307, '/products')
   }
 
+  const notification = 'End of season sale! 50% off'
   const title = 'Product details'
   const response = await fetch('http://localhost:4000/products')
   const products = await response.json()
@@ -22,5 +23,6 @@ export const load: PageLoad = async ({ params, fetch, url, route }) => {
   return {
     title,
     product,
+    notification,
   }
 }
