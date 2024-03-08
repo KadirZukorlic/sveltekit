@@ -19,7 +19,9 @@ export const load: PageLoad = async ({ params, fetch, url, route }) => {
   const title = 'Product details'
   const response = await fetch('http://localhost:4000/products')
   const products = await response.json()
-  const product = products.find((p: any) => p.id === parseInt(productId))
+  const product = products.find(
+    (p: any) => parseInt(p.id) === parseInt(productId),
+  )
   return {
     title,
     product,
