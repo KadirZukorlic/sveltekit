@@ -16,3 +16,7 @@ export const load: PageLoad = async ({ fetch, parent }) => {
     notification,
   }
 }
+
+export const ssr = true;
+export const csr = false;
+
