@@ -17,6 +17,8 @@ export const load: PageLoad = async ({ fetch, parent }) => {
   }
 }
 
+export const prerender = true;
+
 export const ssr = true;
 export const csr = false;
 
