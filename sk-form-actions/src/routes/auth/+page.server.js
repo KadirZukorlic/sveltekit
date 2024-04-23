@@ -1,3 +1,4 @@
+import { fail } from '@sveltejs/kit';
 // export const load = ({ cookies }) => {}
 
 export const actions = {
@@ -8,15 +9,16 @@ export const actions = {
 
 
         if (!username || !password) {
-            return {
-             message: 'Missing username or password',
-            }
+            return fail(400, {
+                username,
+                message: 'Missing username or password',
+            })
         }
         cookies.set('username', username, { path: '/' });
 
-        return {
+        return fail(200, {
             message: 'Logged in',
-        }
+        })
     },
 
     register: async ({request, cookies}) => {
