@@ -3,6 +3,9 @@ import { redirect } from '@sveltejs/kit';
 // import { secretKey } from '$lib/server/secrets';
 
 export const load = ({ cookies, url }) => {
+	if (!cookies.get('username')) {
+		throw redirect(307, `/auth?redirectTo=${url.pathname}`);
+	}
 	// console.log(`Connecting to database with username ${DB_USER} and password ${DB_PASSWORD}`);
 	// console.log(secretKey);
 	// Redirect to auth page if user is not logged in

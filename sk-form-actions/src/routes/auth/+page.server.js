@@ -1,8 +1,9 @@
 import { fail } from '@sveltejs/kit';
+import { redirect } from '@sveltejs/kit';
 // export const load = ({ cookies }) => {}
 
 export const actions = {
-    login: async ({request, cookies}) => {
+    login: async ({ request, cookies, url }) => {
         const data = await request.formData();
                 const username = data.get('username')
         const password  = data.get('password')
@@ -15,10 +16,8 @@ export const actions = {
             })
         }
         cookies.set('username', username, { path: '/' });
+        throw redirect(303, url.searchParams.get('redirectTo') || '/');
 
-        return fail(200, {
-            message: 'Logged in',
-        })
     },
 
     register: async ({request, cookies}) => {
